@@ -34,3 +34,15 @@ arriver = "iglou"
 # Didier
 # Create bridge with 6 pilar
 pilar = 6
+
+# Thommy
+# End of game 
+def end_of_game pilar
+    if pilar != 0
+        puts "replay"
+    else
+        puts "game over"
+    end
+end
+
+puts end_of_game 0
