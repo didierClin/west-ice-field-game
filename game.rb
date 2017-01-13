@@ -1,4 +1,16 @@
-# Dana
+
+# Dana 
+# The dice
+# Dice roll
+def dice_roll
+    dice = ["bridge","snow_house","ice_cubes"]
+    face= dice.sample
+end
+
+puts dice_roll 
+
+
+
 # John
 #created 4 pawns in the shape of animals
 pawns =["rabbit", "auk","fox","bear"]
@@ -17,6 +29,7 @@ pont = "transition"
 
 #Zone d'arriver
 arriver = "iglou"
+
 
 # Didier
 # Create bridge with 6 pilar
