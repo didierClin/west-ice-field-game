@@ -13,10 +13,9 @@ puts dice_roll
 
 # John
 #created 4 pawns in the shape of animals
-pawns =[{"rabbit:depart"}, {"auk":depart},{"fox":depart},{"bear":depart}]
+pawns =[{"rabbit"=>depart}, {"auk"=>depart},{"fox"=>depart},{"bear"=>depart}]
 
 
-puts " put the pawns on the départ"
 
 
 
@@ -30,7 +29,7 @@ puts " put the pawns on the départ"
 # Thommy
 #Plateau de jeu
 #Zone de depart
-depart = "zone de pêche"
+depart = "zone de perche"
 
 #Pont
 pont = "transition"
