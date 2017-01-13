@@ -1,5 +1,12 @@
 # Dana
-# Jean
+# John
+#created 4 pawns in the shape of animals
+pawns =["rabbit", "auk","fox","bear"]
+
+
+
+
+
 # Thommy
 #Plateau de jeu
 #Zone de depart
