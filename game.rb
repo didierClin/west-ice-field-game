@@ -29,7 +29,7 @@ pawns =[{"rabbit"=>depart}, {"auk"=>depart},{"fox"=>depart},{"bear"=>depart}]
 # Thommy
 #Plateau de jeu
 #Zone de depart
-depart = "zone de perche"
+depart = "zone de pêche"
 
 #Pont
 pont = "transition"
