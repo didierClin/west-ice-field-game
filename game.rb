@@ -19,3 +19,5 @@ pont = "transition"
 arriver = "iglou"
 
 # Didier
+# Create bridge with 6 pilar
+pilar = 6
