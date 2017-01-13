@@ -3,36 +3,31 @@
 # The dice
 # Dice roll
 
+
 def dice_roll
-    dice = ["bridge","snow_house","ice_cubes"]
+    dice = ["bridge","snow_house","ice_cube"]
     face= dice.sample
-    return face
+
+    if face=="bridge"
+    puts "You just drew a #{face}! You can move forward" 
+    elsif face=="snow_house"
+    puts "You just drew a #{face}! You're on the safe side!"
+    elsif face=="ice_cube"
+    puts " Outch!! You just drew an #{face}! You're sinking'"
+    end
+
 end
 
-if face=="brdige"
-then puts "1"
-elsif face=="snow_house"
-then puts "2"
-elsif face=="ice_cubes"
-then puts "3"
-
-
-
-
-
+puts dice_roll
 
 # John
 #created 4 pawns in the shape of animals
 pawns =["rabbit", "auk","fox","bear"]
 
-
-
-
-
 # Thommy
 #Plateau de jeu
 #Zone de depart
-depart = "zone de perche"
+depart = "zone de pêche"
 
 #Pont
 pont = "transition"
@@ -40,4 +35,7 @@ pont = "transition"
 #Zone d'arriver
 arriver = "iglou"
 
+
 # Didier
+# Create bridge with 6 pilar
+pilar = 6
