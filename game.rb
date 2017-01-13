@@ -1,6 +1,7 @@
 # Dana
 # John
-pawns =["rabbit", "auk","fox","bear" ]
+#created 4 pawns in the shape of animals
+pawns =["rabbit", "auk","fox","bear"]
 
 
 
