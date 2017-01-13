@@ -1,5 +1,5 @@
 
-# Dana 
+# Dana
 # The dice
 # Dice roll
 def dice_roll
@@ -7,7 +7,7 @@ def dice_roll
     face= dice.sample
 end
 
-puts dice_roll 
+puts dice_roll
 
 
 
@@ -17,13 +17,6 @@ pawns =[{"rabbit:depart"}, {"auk":depart},{"fox":depart},{"bear":depart}]
 
 
 puts " put the pawns on the départ"
-
-
-
-
-
-
-    
 
 
 
@@ -41,4 +34,4 @@ arriver = "iglou"
 
 # Didier
 # Create bridge with 6 pilar
-pilar = 6
+bridge = 6
