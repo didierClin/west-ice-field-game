@@ -13,9 +13,17 @@ puts dice_roll
 
 # John
 #created 4 pawns in the shape of animals
-pawns =["rabbit", "auk","fox","bear"]
+pawns =[{"rabbit:depart"}, {"auk":depart},{"fox":depart},{"bear":depart}]
 
 
+puts " put the pawns on the départ"
+
+
+
+
+
+
+    
 
 
 
