@@ -1,5 +1,5 @@
 
-# Dana 
+# Dana
 # The dice
 # Dice roll
 def dice_roll
@@ -7,15 +7,16 @@ def dice_roll
     face= dice.sample
 end
 
-puts dice_roll 
+puts dice_roll
 
 
 
 # John
 #created 4 pawns in the shape of animals
-pawns =["rabbit", "auk","fox","bear"]
+pawns =[{"rabbit:depart"}, {"auk":depart},{"fox":depart},{"bear":depart}]
 
 
+puts " put the pawns on the départ"
 
 
 
@@ -33,12 +34,12 @@ arriver = "iglou"
 
 # Didier
 # Create bridge with 6 pilar
-pilar = 6
+bridge = 6
 
 # Thommy
 # End of game 
-def end_of_game pilar
-    if pilar != 0
+def end_of_game bridge
+    if bridge != 0
         puts "replay"
     else
         puts "game over"
