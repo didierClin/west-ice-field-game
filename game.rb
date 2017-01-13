@@ -22,7 +22,7 @@ pawns =["rabbit", "auk","fox","bear"]
 # Thommy
 #Plateau de jeu
 #Zone de depart
-depart = "zone de perche"
+depart = "zone de pêche"
 
 #Pont
 pont = "transition"
