@@ -2,12 +2,22 @@
 # Dana 
 # The dice
 # Dice roll
+
 def dice_roll
     dice = ["bridge","snow_house","ice_cubes"]
     face= dice.sample
+    return face
 end
 
-puts dice_roll 
+if face=="brdige"
+then puts "1"
+elsif face=="snow_house"
+then puts "2"
+elsif face=="ice_cubes"
+then puts "3"
+
+
+
 
 
 
@@ -29,6 +39,5 @@ pont = "transition"
 
 #Zone d'arriver
 arriver = "iglou"
-
 
 # Didier
