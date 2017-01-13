@@ -2,22 +2,27 @@
 # Dana
 # The dice
 # Dice roll
+
+
 def dice_roll
-    dice = ["bridge","snow_house","ice_cubes"]
+    dice = ["bridge","snow_house","ice_cube"]
     face= dice.sample
+
+    if face=="bridge"
+    puts "You just drew a #{face}! You can move forward" 
+    elsif face=="snow_house"
+    puts "You just drew a #{face}! You're on the safe side!"
+    elsif face=="ice_cube"
+    puts " Outch!! You just drew an #{face}! You're sinking'"
+    end
+
 end
 
 puts dice_roll
 
-
-
 # John
 #created 4 pawns in the shape of animals
 pawns =[{"rabbit"=>depart}, {"auk"=>depart},{"fox"=>depart},{"bear"=>depart}]
-
-
-
-
 
 # Thommy
 #Plateau de jeu
@@ -46,3 +51,4 @@ def end_of_game bridge
 end
 
 puts end_of_game 0
+
