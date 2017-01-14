@@ -11,7 +11,7 @@
 # #Zone d'arriver
 # arriver = "iglou"
 
-zones = { ice_field: "" , bridge: "" , snow_house: "" }
+zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]" , bridge: [] , snow_house: [] }
 
 
 # Dana
@@ -28,12 +28,12 @@ pawns =["rabbit", "auk", "fox" , "bear"]
 puts dice_roll
 
 
-
-
-
 # Didier
-# Create bridge with 6 pilar
+# Create bridge with 6 pillar
 bridge = 6
+
+
+
 
 
 
