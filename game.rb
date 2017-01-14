@@ -61,11 +61,11 @@ while ( bridge != 0 && !win ) do
     # ask method with ice_field symbol cast to string
     mover = check_area(areas, :ice_field.to_s) - 1
     # if mover.respond_to? :/
-    if  areas[:ice_field].include? pawns[mover]
+    if  areas[:ice_field].include? areas[:ice_field][mover]
       puts mover
-      puts "#{mover} #{pawns[mover]} move to the Bridge"
+      puts "-------- #{areas[:ice_field][mover]} move to the Bridge"
       # need to remove from first area to next area in hash
-      areas[:bridge] << pawns[mover]
+      areas[:bridge] << areas[:ice_field][mover]
       areas[:ice_field].delete_at(mover)
     end
   elsif throw == 1
@@ -78,9 +78,9 @@ while ( bridge != 0 && !win ) do
     mover = check_area(areas, :bridge.to_s)
     if mover.respond_to? :/
       puts mover
-      puts "#{mover} #{pawns[mover]} move to the Bridge"
+      puts "-------- #{areas[:bridge][mover]} move to the Snow House"
       # need to remove from first area to next area in hash
-      areas[:snow_house] << pawns[mover]
+      areas[:snow_house] << areas[:bridge][mover]
       areas[:bridge].delete_at(mover)
     end
   end
