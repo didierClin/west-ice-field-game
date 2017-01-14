@@ -9,7 +9,7 @@ zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_h
 
 # Dana
 # create dice
-dice  = ["bridge","snow_house","ice_cube","bridge","snow_house","ice_cube"]
+dice  = ["bridge","ice_cube","snow_house","bridge","ice_cube","snow_house"]
 
 # Didier
 # Create bridge with 6 pillar
@@ -29,15 +29,15 @@ puts "Let's start \n"
 win = false
 while ( bridge != 0 || win == true ) do
   # we calculate result of a dice(6) throw modulo 3
-  throw = (rand(6) + 1) % 3
+  throw = (rand(6)) % 3
   if throw == 0
-    puts "#{throw} case 3 or 6 : snow-house"
+    puts "#{dice[throw]} case 0 or 3 : bridge"
   elsif throw == 1
-    puts "#{throw} case 1 or 4 : bridge"
-  else
-    puts "#{throw} case 2 or 5 : break a pillar"
-    puts bridge
+    puts "#{dice[throw]} case 1 or 4 : break a pillar"
     bridge -= 1
+    puts "==> Oup's it remains only #{bridge} pillar(s) to maintain the bridge!"
+  else
+    puts "#{dice[throw]} case 2 or 5 : snow-house"
   end
 end
 
