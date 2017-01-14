@@ -1,3 +1,21 @@
+# Thommy
+#game board - master piece of program (for me ;) )
+#change vars depart, pont and arriver (ee) to hash of zones
+# zones = { depart pont arrivee }
+#
+# depart = "zone de pêche"
+#
+# #Pont
+# pont = "transition"
+#
+# #Zone d'arriver
+# arriver = "iglou"
+
+zones = { start: "" , transit: "" , final: "" }
+
+
+
+
 
 # Dana
 dice = ["bridge","snow_house","ice_cube"]
@@ -10,16 +28,6 @@ puts dice_roll
 #created 4 pawns in the shape of animals
 pawns =[{"rabbit"=>depart}, {"auk"=>depart},{"fox"=>depart},{"bear"=>depart}]
 
-# Thommy
-#Plateau de jeu
-#Zone de depart
-depart = "zone de pêche"
-
-#Pont
-pont = "transition"
-
-#Zone d'arriver
-arriver = "iglou"
 
 
 # Didier
