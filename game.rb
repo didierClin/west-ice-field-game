@@ -36,6 +36,12 @@ while ( bridge != 0 || win == true ) do
   if throw == 0
     puts "#{dice[throw]} case 0 or 3 : bridge"
     # ask player which animal he want move to the bridge if someone is always in fishing place
+    size = zones[:ice_field].size
+    if zones[:ice_field]
+      puts "it remains #{zones[:ice_field].size} animals : #{(0..size-1).map  {|i| zones[:ice_field][i]}}"
+    else
+      puts "nobody's here !"
+    end
   elsif throw == 1
     puts "#{dice[throw]} case 1 or 4 : break a pillar"
     bridge -= 1
