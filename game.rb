@@ -30,7 +30,7 @@ def check_area(areas_to_check, area)
     puts "\n it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
     puts "   witch animal(s) do you want to move ? "
     puts "   please give it's place"
-    gets.to_i
+    (gets.to_i) - 1
   else
     puts "nobody's here !"
   end
@@ -62,8 +62,8 @@ while ( bridge != 0 && !win ) do
     mover = check_area(areas, :ice_field.to_s)
     if mover.respond_to? :/
       puts mover
-    else
-      puts "ko "
+      puts "#{mover} #{pawns[mover]} move to the Bridge"
+
     end
   elsif throw == 1
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
