@@ -33,10 +33,9 @@ end
 # not sure of the utility but make it dry as much as possible
 def move(areas_to_check, area_from, area_to, which_mover)
   area_from = area_from.to_sym
-  area_to = area_to.to_sym
   if  areas_to_check[area_from].include? areas_to_check[area_from][which_mover]
     puts "-------- #{areas_to_check[area_from][which_mover]} move to the Snow House"
-    areas_to_check[area_to] << areas_to_check[area_from].delete_at(which_mover)
+    areas_to_check[area_to.to_sym] << areas_to_check[area_from].delete_at(which_mover)
   end
 end
 
@@ -55,9 +54,8 @@ puts "Let's start \n"
 win = false
 player = 0
 while ( bridge != 0 && !win ) do
-  puts `clear`
-  puts player
-  puts areas
+  # clear the screen and display infos
+  puts `clear` ; puts areas
   puts "\n\n The bridge has #{bridge} pillar(s)."
   puts "\n\nIt's your turn #{team[player]} - Please roll the dice ?"
   gets
