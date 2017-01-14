@@ -30,6 +30,17 @@ def check_area(areas_to_check, area)
   (gets.to_i) - 1
 end
 
+# not sure of the utility but make it dry as much as possible
+def move(areas_to_check, area_from, area_to, which_mover)
+  area_from = area_from.to_sym
+  area_to = area_to.to_sym
+  if  areas_to_check[area_from].include? areas_to_check[area_from][which_mover]
+    puts "-------- #{areas_to_check[area_from][which_mover]} move to the Snow House"
+    areas_to_check[area_to] << areas_to_check[area_from][which_mover]
+    areas_to_check[area_from].delete_at(which_mover)
+  end
+end
+
 # many players but one team
 puts "How many players in the team : ?"
 team = []
@@ -75,16 +86,17 @@ while ( bridge != 0 && !win ) do
   else
     puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
     mover = check_area(areas, :bridge.to_s)
-    if  areas[:bridge].include? areas[:bridge][mover]
-      puts "-------- #{areas[:bridge][mover]} move to the Snow House"
-      areas[:snow_house] << areas[:bridge][mover]
-      areas[:bridge].delete_at(mover)
-    end
+    move(areas, :bridge.to_s, :snow_house.to_s , mover)
+    # if  areas[:bridge].include? areas[:bridge][mover]
+    #   puts "-------- #{areas[:bridge][mover]} move to the Snow House"
+    #   areas[:snow_house] << areas[:bridge][mover]
+    #   areas[:bridge].delete_at(mover)
+    # end
 
   end
   win = true if areas[:snow_house].size == 4
   player = (player + 1) % team.size
-  puts areas
+  puts 
 end
 
 puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends are not saved !! maybe the next time."
