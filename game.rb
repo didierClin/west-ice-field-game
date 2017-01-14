@@ -18,15 +18,16 @@ zones = { ice_field: "" , bridge: "" , snow_house: "" }
 dice  = ["bridge","snow_house","ice_cube","bridge","snow_house","ice_cube"]
 
 
+# John
+#created 4 pawns in the shape of animals
+# Sorry JR I change my point of view ;)
+pawns =["rabbit", "auk", "fox" , "bear"]
 
 # The dice
 # Dice roll
 puts dice_roll
 
 
-# John
-#created 4 pawns in the shape of animals
-pawns =[{"rabbit"=>depart}, {"auk"=>depart},{"fox"=>depart},{"bear"=>depart}]
 
 
 
