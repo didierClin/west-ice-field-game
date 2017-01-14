@@ -68,13 +68,13 @@ while ( bridge != 0 && !win ) do
     puts ">> #{dice[throw]}  case 0 or 3 : bridge"
     # ask player which animal he want move to the bridge if someone is always in fishing place
     # ask method with ice_field symbol cast to string
-    mover = check_area(areas, :ice_field.to_s) - 1
+    mover = check_area(areas, :ice_field.to_s)
     move(areas, :ice_field.to_s, :bridge.to_s , mover)
   elsif throw == 1
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
 
     puts "\n ==> Oup's it remains only #{bridge -= 1} pillar(s) to maintain the bridge!\n"
-    if Bridge
+    if bridge
       puts "Hit a key!"
       gets
     end
