@@ -36,9 +36,9 @@ while ( bridge != 0 || win == true ) do
     puts "#{throw} case 1 or 4 : bridge"
   else
     puts "#{throw} case 2 or 5 : break a pillar"
+    puts bridge
+    bridge -= 1
   end
-  puts bridge
-  bridge -= 1
 end
 
 
