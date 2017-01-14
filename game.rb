@@ -3,14 +3,13 @@
 
 # John
 #create 4 pawns in the shape of animals
-pawns =["rabbit", "auk", "fox" , "bear"]
+# need to move pawns array into area hash
+# pawns =["rabbit", "auk", "fox" , "bear"]
 
 # Thommy
 #game board - master piece of program (for me ;) )
-#change vars depart, pont and arriver (ee) to hash of areas
-# areas = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_house: [] }
-areas = { ice_field: [pawns[0],pawns[1],pawns[3]] , bridge: [pawns[2]] , snow_house: [] }
-# areas = { ice_field: [] , bridge: [] , snow_house: [pawns[0],pawns[1],pawns[2],pawns[3]] }
+areas = { ice_field: ["rabbit", "auk", "fox",  "bear"] , bridge: [] , snow_house: [] }
+# areas = { ice_field: ["rabbit", "auk",  "bear"] , bridge: ["fox"] , snow_house: [] }
 
 # Dana
 # create dice
