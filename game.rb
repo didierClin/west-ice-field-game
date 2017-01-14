@@ -51,7 +51,7 @@ puts "Let's start \n"
 win = false
 player = 0
 while ( bridge != 0 && !win ) do
-  puts "It's your turn #{team[0]} - roll the dice ?"
+  puts "It's your turn #{team[player]} - roll the dice ?"
   gets
   # we calculate result of a dice(6) throw modulo 3
   throw = (rand(6)) % 3
@@ -74,7 +74,6 @@ while ( bridge != 0 && !win ) do
     puts "==> Oup's it remains only #{bridge} pillar(s) to maintain the bridge!"
   else
     puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
-    win = true if areas[:snow_house].size == 4
     mover = check_area(areas, :bridge.to_s)
     if mover.respond_to? :/
       puts mover
@@ -84,6 +83,7 @@ while ( bridge != 0 && !win ) do
       areas[:bridge].delete_at(mover)
     end
   end
+  win = true if areas[:snow_house].size == 4
   player = (player + 1) % team.size
   puts areas
 end
