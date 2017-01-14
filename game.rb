@@ -11,14 +11,14 @@
 # #Zone d'arriver
 # arriver = "iglou"
 
-zones = { start: "" , transit: "" , final: "" }
-
-
-
+zones = { ice_field: "" , bridge: "" , snow_house: "" }
 
 
 # Dana
-dice = ["bridge","snow_house","ice_cube"]
+dice  = ["bridge","snow_house","ice_cube","bridge","snow_house","ice_cube"]
+
+
+
 # The dice
 # Dice roll
 puts dice_roll
