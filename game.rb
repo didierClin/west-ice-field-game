@@ -1,39 +1,33 @@
+# By Dhana, John, Timmy and Didier
 ###################################
 #  Prepare the game
 
-# John
-#create 4 pawns in the shape of animals
-# need to move pawns array into area hash
-# pawns =["rabbit", "auk", "fox" , "bear"]
-
-# Thommy
 #game board - master piece of program (for me ;) )
 areas = { ice_field: ["rabbit", "auk", "fox",  "bear"] , bridge: [] , snow_house: [] }
 # areas = { ice_field: ["rabbit", "auk",  "bear"] , bridge: ["fox"] , snow_house: [] }
 
-# Dana
 # create dice
 dice  = ["bridge","ice_cube","snow_house","bridge","ice_cube","snow_house"]
 
-# Didier
-# Create bridge with 6 pillar
+# Initialize bridge with 6 pillar
 bridge = 6
 
 def check_area(areas_to_check, area)
   area = area.to_sym
-  area.inspect
   ###################################
   # care area is now a masqued symbol
   size = areas_to_check[area].count if areas_to_check[area]
-  if areas_to_check[area]
-    puts "\n it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
-    puts "   witch animal(s) do you want to move ? "
-    puts "   please give it's place"
-
-    (gets.to_i)
-  else
-    puts "nobody's here !"
+  # check if there is a animals on area
+  if areas_to_check[area].count == 0
+    puts " #{areas_to_check[area]} : nobody's here !"
+    puts "Hit a key!"
+    gets
+    return 999 #return a number outside of range
   end
+
+  puts "\n it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
+  puts "   witch animal(s) do you want to move ? n   please give it's place"
+  (gets.to_i) - 1
 end
 
 # many players but one team
@@ -41,7 +35,7 @@ puts "How many players in the team : ?"
 team = []
 (1..gets.to_i).each do |p|
   puts "What's your name player #{p}"
-  team << gets.chomp
+  team << gets.chomp.capitalize
 end
 
 ###################################
@@ -51,7 +45,11 @@ puts "Let's start \n"
 win = false
 player = 0
 while ( bridge != 0 && !win ) do
-  puts "It's your turn #{team[player]} - roll the dice ?"
+  puts `clear`
+  puts player
+  puts areas
+  puts "\n\n The bridge has #{bridge} pillar(s)."
+  puts "\n\nIt's your turn #{team[player]} - Please roll the dice ?"
   gets
   # we calculate result of a dice(6) throw modulo 3
   throw = (rand(6)) % 3
