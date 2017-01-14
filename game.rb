@@ -4,10 +4,10 @@ pawns =["rabbit", "auk", "fox" , "bear"]
 
 # Thommy
 #game board - master piece of program (for me ;) )
-#change vars depart, pont and arriver (ee) to hash of zones
-# zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_house: [] }
-# zones = { ice_field: [pawns[0],pawns[1],pawns[3]] , bridge: [pawns[2]] , snow_house: [] }
-zones = { ice_field: [] , bridge: [] , snow_house: [pawns[0],pawns[1],pawns[2],pawns[3]] }
+#change vars depart, pont and arriver (ee) to hash of areas
+# areas = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_house: [] }
+# areas = { ice_field: [pawns[0],pawns[1],pawns[3]] , bridge: [pawns[2]] , snow_house: [] }
+areas = { ice_field: [] , bridge: [] , snow_house: [pawns[0],pawns[1],pawns[2],pawns[3]] }
 
 # Dana
 # create dice
@@ -16,6 +16,17 @@ dice  = ["bridge","ice_cube","snow_house","bridge","ice_cube","snow_house"]
 # Didier
 # Create bridge with 6 pillar
 bridge = 6
+
+def check_area
+  # size = areas[:bridge].count if areas[:bridge]
+  # if areas[:bridge]
+  #   puts "it remains #{areas[:bridge].size} animals : #{(0..size-1).map  {|i| areas[:bridge][i]}}"
+  # else
+  #   puts "nobody's here !"
+  # end
+end
+
+
 
 # many players but one team
 puts "How many players in the team : ?"
@@ -38,9 +49,9 @@ while ( bridge != 0 && !win ) do
   if throw == 0
     puts "#{dice[throw]} case 0 or 3 : bridge"
     # ask player which animal he want move to the bridge if someone is always in fishing place
-    size = zones[:ice_field].size
-    if zones[:ice_field]
-      puts "it remains #{zones[:ice_field].size} animals : #{(0..size-1).map  {|i| zones[:ice_field][i]}}"
+    size = areas[:ice_field].size
+    if areas[:ice_field]
+      puts "it remains #{areas[:ice_field].size} animals : #{(0..size-1).map  {|i| areas[:ice_field][i]}}"
     else
       puts "nobody's here !"
     end
@@ -50,46 +61,10 @@ while ( bridge != 0 && !win ) do
     puts "==> Oup's it remains only #{bridge} pillar(s) to maintain the bridge!"
   else
     puts "#{dice[throw]} case 2 or 5 : snow-house"
-    win = true if zones[:snow_house].size == 4
-    size = zones[:bridge].count if zones[:bridge]
-    if zones[:bridge]
-      puts "it remains #{zones[:bridge].size} animals : #{(0..size-1).map  {|i| zones[:bridge][i]}}"
-    else
-      puts "nobody's here !"
-    end
+    win = true if areas[:snow_house].size == 4
+    check_area
   end
   player = (player + 1) % team.size
 end
 
 puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends remains on the bad area !! maybe the next time."
-
-=begin
-def dice_roll
-    face= dice.sample
-
-    if face=="bridge"
-    puts "You just drew a #{face}! You can move forward"
-    elsif face=="snow_house"
-    puts "You just drew a #{face}! You're on the safe side!"
-    elsif face=="ice_cube"
-    puts " Outch!! You just drew an #{face}! You're sinking'"
-    end
-
-end
-
-
-
-
-# Thommy
-# End of game
-def end_of_game bridge
-    if bridge != 0
-        puts "replay"
-    else
-        puts "game over"
-    end
-end
-
-puts end_of_game 0
-
-=end
