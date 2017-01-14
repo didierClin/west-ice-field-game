@@ -74,7 +74,7 @@ while ( bridge != 0 && !win ) do
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
 
     puts "\n ==> Oup's it remains only #{bridge -= 1} pillar(s) to maintain the bridge!\n"
-    if bridge
+    if bridge != 0
       puts "Hit a key!"
       gets
     end
