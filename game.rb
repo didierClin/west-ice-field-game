@@ -69,14 +69,7 @@ while ( bridge != 0 && !win ) do
     # ask player which animal he want move to the bridge if someone is always in fishing place
     # ask method with ice_field symbol cast to string
     mover = check_area(areas, :ice_field.to_s) - 1
-    # if mover.respond_to? :/
-    if  areas[:ice_field].include? areas[:ice_field][mover]
-      puts mover
-      puts "-------- #{areas[:ice_field][mover]} move to the Bridge"
-      # need to remove from first area to next area in hash
-      areas[:bridge] << areas[:ice_field][mover]
-      areas[:ice_field].delete_at(mover)
-    end
+    move(areas, :ice_field.to_s, :bridge.to_s , mover)
   elsif throw == 1
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
 
@@ -89,7 +82,6 @@ while ( bridge != 0 && !win ) do
     puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
     mover = check_area(areas, :bridge.to_s)
     move(areas, :bridge.to_s, :snow_house.to_s , mover)
-
   end
   win = true if areas[:snow_house].size == 4
   player = (player + 1) % team.size
