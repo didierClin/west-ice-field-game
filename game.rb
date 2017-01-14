@@ -1,3 +1,6 @@
+###################################
+#  Prepare the game
+
 # John
 #create 4 pawns in the shape of animals
 pawns =["rabbit", "auk", "fox" , "bear"]
@@ -6,8 +9,8 @@ pawns =["rabbit", "auk", "fox" , "bear"]
 #game board - master piece of program (for me ;) )
 #change vars depart, pont and arriver (ee) to hash of areas
 # areas = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_house: [] }
-# areas = { ice_field: [pawns[0],pawns[1],pawns[3]] , bridge: [pawns[2]] , snow_house: [] }
-areas = { ice_field: [] , bridge: [] , snow_house: [pawns[0],pawns[1],pawns[2],pawns[3]] }
+areas = { ice_field: [pawns[0],pawns[1],pawns[3]] , bridge: [pawns[2]] , snow_house: [] }
+# areas = { ice_field: [] , bridge: [] , snow_house: [pawns[0],pawns[1],pawns[2],pawns[3]] }
 
 # Dana
 # create dice
@@ -17,16 +20,18 @@ dice  = ["bridge","ice_cube","snow_house","bridge","ice_cube","snow_house"]
 # Create bridge with 6 pillar
 bridge = 6
 
-def check_area
-  # size = areas[:bridge].count if areas[:bridge]
-  # if areas[:bridge]
-  #   puts "it remains #{areas[:bridge].size} animals : #{(0..size-1).map  {|i| areas[:bridge][i]}}"
-  # else
-  #   puts "nobody's here !"
-  # end
+def check_area(areas_to_check, area)
+  area = area.to_sym
+  area.inspect
+  ###################################
+  # care area is now a masqued symbol
+  size = areas_to_check[area].count if areas_to_check[area]
+  if areas_to_check[area]
+    puts "it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
+  else
+    puts "nobody's here !"
+  end
 end
-
-
 
 # many players but one team
 puts "How many players in the team : ?"
@@ -36,6 +41,7 @@ team = []
   team << gets.chomp
 end
 
+###################################
 #Ready to play?
 puts "Let's start \n"
 # Game ends when bridge has no pillar or when all pawns are safe on snow-house land
@@ -49,12 +55,8 @@ while ( bridge != 0 && !win ) do
   if throw == 0
     puts "#{dice[throw]} case 0 or 3 : bridge"
     # ask player which animal he want move to the bridge if someone is always in fishing place
-    size = areas[:ice_field].size
-    if areas[:ice_field]
-      puts "it remains #{areas[:ice_field].size} animals : #{(0..size-1).map  {|i| areas[:ice_field][i]}}"
-    else
-      puts "nobody's here !"
-    end
+    # ask method with ice_field symbol cast to string
+    check_area(areas, :ice_field.to_s)
   elsif throw == 1
     puts "#{dice[throw]} case 1 or 4 : break a pillar"
     bridge -= 1
@@ -62,9 +64,9 @@ while ( bridge != 0 && !win ) do
   else
     puts "#{dice[throw]} case 2 or 5 : snow-house"
     win = true if areas[:snow_house].size == 4
-    check_area
+    check_area(areas, :bridge.to_s)
   end
   player = (player + 1) % team.size
 end
 
-puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends remains on the bad area !! maybe the next time."
+puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends are not saved !! maybe the next time."
