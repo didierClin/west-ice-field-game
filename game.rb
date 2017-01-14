@@ -5,7 +5,9 @@ pawns =["rabbit", "auk", "fox" , "bear"]
 # Thommy
 #game board - master piece of program (for me ;) )
 #change vars depart, pont and arriver (ee) to hash of zones
-zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_house: [] }
+# zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]] , bridge: [] , snow_house: [] }
+# zones = { ice_field: [pawns[0],pawns[1],pawns[3]] , bridge: [pawns[2]] , snow_house: [] }
+zones = { ice_field: [] , bridge: [] , snow_house: [pawns[0],pawns[1],pawns[2],pawns[3]] }
 
 # Dana
 # create dice
@@ -28,7 +30,7 @@ puts "Let's start \n"
 # Game ends when bridge has no pillar or when all pawns are safe on snow-house land
 win = false
 player = 0
-while ( bridge != 0 || win == true ) do
+while ( bridge != 0 && !win ) do
   puts "It's your turn #{team[0]} - roll the dice ?"
   gets
   # we calculate result of a dice(6) throw modulo 3
@@ -48,10 +50,18 @@ while ( bridge != 0 || win == true ) do
     puts "==> Oup's it remains only #{bridge} pillar(s) to maintain the bridge!"
   else
     puts "#{dice[throw]} case 2 or 5 : snow-house"
+    win = true if zones[:snow_house].size == 4
+    size = zones[:bridge].count if zones[:bridge]
+    if zones[:bridge]
+      puts "it remains #{zones[:bridge].size} animals : #{(0..size-1).map  {|i| zones[:bridge][i]}}"
+    else
+      puts "nobody's here !"
+    end
   end
   player = (player + 1) % team.size
 end
 
+puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends remains on the bad area !! maybe the next time."
 
 =begin
 def dice_roll
