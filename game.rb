@@ -19,7 +19,7 @@ def check_area(areas_to_check, area)
   size = areas_to_check[area].count if areas_to_check[area]
   # check if there is a animals on area
   if areas_to_check[area].count == 0
-    puts " #{areas_to_check[area]} : nobody's here !"
+    puts " #{area} : nobody's here !"
     puts "Hit a key!"
     gets
     return 999 #return a number outside of range
