@@ -36,8 +36,7 @@ def move(areas_to_check, area_from, area_to, which_mover)
   area_to = area_to.to_sym
   if  areas_to_check[area_from].include? areas_to_check[area_from][which_mover]
     puts "-------- #{areas_to_check[area_from][which_mover]} move to the Snow House"
-    areas_to_check[area_to] << areas_to_check[area_from][which_mover]
-    areas_to_check[area_from].delete_at(which_mover)
+    areas_to_check[area_to] << areas_to_check[area_from].delete_at(which_mover)
   end
 end
 
