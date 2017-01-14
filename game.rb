@@ -63,7 +63,9 @@ while ( bridge != 0 && !win ) do
     if mover.respond_to? :/
       puts mover
       puts "#{mover} #{pawns[mover]} move to the Bridge"
-
+      # need to remove from first area to next area in hash
+      areas[:bridge] << pawns[mover]
+      areas[:ice_field].delete_at(mover)
     end
   elsif throw == 1
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
@@ -72,9 +74,17 @@ while ( bridge != 0 && !win ) do
   else
     puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
     win = true if areas[:snow_house].size == 4
-    check_area(areas, :bridge.to_s)
+    mover = check_area(areas, :bridge.to_s)
+    if mover.respond_to? :/
+      puts mover
+      puts "#{mover} #{pawns[mover]} move to the Bridge"
+      # need to remove from first area to next area in hash
+      areas[:snow_house] << pawns[mover]
+      areas[:bridge].delete_at(mover)
+    end
   end
   player = (player + 1) % team.size
+  puts areas
 end
 
 puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends are not saved !! maybe the next time."
