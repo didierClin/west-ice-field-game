@@ -27,11 +27,15 @@ end
 puts "Let's start \n"
 # Game ends when bridge has no pillar or when all pawns are safe on snow-house land
 win = false
+player = 0
 while ( bridge != 0 || win == true ) do
+  puts "It's your turn #{team[0]} - roll the dice ?"
+  gets
   # we calculate result of a dice(6) throw modulo 3
   throw = (rand(6)) % 3
   if throw == 0
     puts "#{dice[throw]} case 0 or 3 : bridge"
+    # ask player which animal he want move to the bridge if someone is always in fishing place
   elsif throw == 1
     puts "#{dice[throw]} case 1 or 4 : break a pillar"
     bridge -= 1
@@ -39,6 +43,7 @@ while ( bridge != 0 || win == true ) do
   else
     puts "#{dice[throw]} case 2 or 5 : snow-house"
   end
+  player = (player + 1) % team.size
 end
 
 
