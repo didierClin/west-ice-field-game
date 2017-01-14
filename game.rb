@@ -27,7 +27,10 @@ def check_area(areas_to_check, area)
   # care area is now a masqued symbol
   size = areas_to_check[area].count if areas_to_check[area]
   if areas_to_check[area]
-    puts "it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
+    puts "\n it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
+    puts "   witch animal(s) do you want to move ? "
+    puts "   please give it's place"
+    gets.to_i
   else
     puts "nobody's here !"
   end
@@ -53,16 +56,21 @@ while ( bridge != 0 && !win ) do
   # we calculate result of a dice(6) throw modulo 3
   throw = (rand(6)) % 3
   if throw == 0
-    puts "#{dice[throw]} case 0 or 3 : bridge"
+    puts ">> #{dice[throw]}  case 0 or 3 : bridge"
     # ask player which animal he want move to the bridge if someone is always in fishing place
     # ask method with ice_field symbol cast to string
-    check_area(areas, :ice_field.to_s)
+    mover = check_area(areas, :ice_field.to_s)
+    if mover.respond_to? :/
+      puts mover
+    else
+      puts "ko "
+    end
   elsif throw == 1
-    puts "#{dice[throw]} case 1 or 4 : break a pillar"
+    puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
     bridge -= 1
     puts "==> Oup's it remains only #{bridge} pillar(s) to maintain the bridge!"
   else
-    puts "#{dice[throw]} case 2 or 5 : snow-house"
+    puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
     win = true if areas[:snow_house].size == 4
     check_area(areas, :bridge.to_s)
   end
