@@ -51,7 +51,7 @@ while ( bridge != 0 && !win ) do
   puts "\n\n The bridge has #{bridge} pillar(s)."
   puts "\n\nIt's your turn #{team[player]} - Please roll the dice ?"
   gets
-  # we calculate result of a dice(6) throw modulo 3
+  # we calculate result of a dice(6) throw modulo 3 as symbols on dice repeat twice
   throw = (rand(6)) % 3
   if throw == 0
     puts ">> #{dice[throw]}  case 0 or 3 : bridge"
@@ -68,18 +68,19 @@ while ( bridge != 0 && !win ) do
     end
   elsif throw == 1
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
-    bridge -= 1
-    puts "==> Oup's it remains only #{bridge} pillar(s) to maintain the bridge!"
+
+    puts "\n ==> Oup's it remains only #{bridge -= 1} pillar(s) to maintain the bridge!\n"
+    puts "Hit a key!"
+    gets
   else
     puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
     mover = check_area(areas, :bridge.to_s)
-    if mover.respond_to? :/
-      puts mover
+    if  areas[:bridge].include? areas[:bridge][mover]
       puts "-------- #{areas[:bridge][mover]} move to the Snow House"
-      # need to remove from first area to next area in hash
       areas[:snow_house] << areas[:bridge][mover]
       areas[:bridge].delete_at(mover)
     end
+
   end
   win = true if areas[:snow_house].size == 4
   player = (player + 1) % team.size
