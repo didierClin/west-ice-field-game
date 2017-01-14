@@ -30,7 +30,8 @@ def check_area(areas_to_check, area)
     puts "\n it remains #{areas_to_check[area].size} animals : #{(0..size-1).map  {|i| areas_to_check[area][i]}}"
     puts "   witch animal(s) do you want to move ? "
     puts "   please give it's place"
-    (gets.to_i) - 1
+
+    (gets.to_i)
   else
     puts "nobody's here !"
   end
@@ -59,8 +60,9 @@ while ( bridge != 0 && !win ) do
     puts ">> #{dice[throw]}  case 0 or 3 : bridge"
     # ask player which animal he want move to the bridge if someone is always in fishing place
     # ask method with ice_field symbol cast to string
-    mover = check_area(areas, :ice_field.to_s)
-    if mover.respond_to? :/
+    mover = check_area(areas, :ice_field.to_s) - 1
+    # if mover.respond_to? :/
+    if  areas[:ice_field].include? pawns[mover]
       puts mover
       puts "#{mover} #{pawns[mover]} move to the Bridge"
       # need to remove from first area to next area in hash
