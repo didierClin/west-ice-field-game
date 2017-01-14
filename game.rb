@@ -11,7 +11,7 @@
 # #Zone d'arriver
 # arriver = "iglou"
 
-zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3]" , bridge: [] , snow_house: [] }
+zones = { ice_field: [pawns[0],pawns[1],pawns[2],pawns[3] , bridge: [] , snow_house: [] }
 
 
 # Dana
@@ -33,8 +33,9 @@ puts dice_roll
 bridge = 6
 
 
-
-
+# many players but one team
+puts "How many players in the team : ?"
+team = gets.to_i
 
 
 
