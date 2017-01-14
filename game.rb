@@ -81,22 +81,19 @@ while ( bridge != 0 && !win ) do
     puts ">> #{dice[throw]}  case 1 or 4 : break a pillar"
 
     puts "\n ==> Oup's it remains only #{bridge -= 1} pillar(s) to maintain the bridge!\n"
-    puts "Hit a key!"
-    gets
+    if Bridge
+      puts "Hit a key!"
+      gets
+    end
   else
     puts ">> #{dice[throw]}  case 2 or 5 : snow-house"
     mover = check_area(areas, :bridge.to_s)
     move(areas, :bridge.to_s, :snow_house.to_s , mover)
-    # if  areas[:bridge].include? areas[:bridge][mover]
-    #   puts "-------- #{areas[:bridge][mover]} move to the Snow House"
-    #   areas[:snow_house] << areas[:bridge][mover]
-    #   areas[:bridge].delete_at(mover)
-    # end
 
   end
   win = true if areas[:snow_house].size == 4
   player = (player + 1) % team.size
-  puts 
+  puts
 end
 
 puts win == true ? "Yeah great job of your Team. You do the job and save our friends !!" : "Oh no! our friends are not saved !! maybe the next time."
