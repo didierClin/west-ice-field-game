@@ -1,24 +1,10 @@
 
 # Dana
+dice = ["bridge","snow_house","ice_cube"]
 # The dice
 # Dice roll
-
-
-def dice_roll
-    dice = ["bridge","snow_house","ice_cube"]
-    face= dice.sample
-
-    if face=="bridge"
-    puts "You just drew a #{face}! You can move forward" 
-    elsif face=="snow_house"
-    puts "You just drew a #{face}! You're on the safe side!"
-    elsif face=="ice_cube"
-    puts " Outch!! You just drew an #{face}! You're sinking'"
-    end
-
-end
-
 puts dice_roll
+
 
 # John
 #created 4 pawns in the shape of animals
@@ -40,8 +26,29 @@ arriver = "iglou"
 # Create bridge with 6 pilar
 bridge = 6
 
+
+
+
+
+=begin
+def dice_roll
+    face= dice.sample
+
+    if face=="bridge"
+    puts "You just drew a #{face}! You can move forward"
+    elsif face=="snow_house"
+    puts "You just drew a #{face}! You're on the safe side!"
+    elsif face=="ice_cube"
+    puts " Outch!! You just drew an #{face}! You're sinking'"
+    end
+
+end
+
+
+
+
 # Thommy
-# End of game 
+# End of game
 def end_of_game bridge
     if bridge != 0
         puts "replay"
@@ -52,3 +59,4 @@ end
 
 puts end_of_game 0
 
+=end
